@@ -1,0 +1,3 @@
+uuu_version 1.2.39
+FB[-t 60000]: ucmd ext4write  mmc  ${emmc_dev}:2  ${fastboot_buffer} ${TARGET_FILE}  ${fastboot_bytes}
+FB: Done

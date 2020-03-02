@@ -1,0 +1,9 @@
+uuu_version 1.2.39
+
+SDP: boot -f ../../firmware/u-boot-dtb_fastboot_100ask.imx
+
+FB: ucmd setenv fastboot_dev mmc
+FB: ucmd setenv mmcdev ${sd_dev}
+FB: ucmd mmc dev ${sd_dev}
+FB: flash -raw2sparse all ../../files/sdcard.img
+FB: done

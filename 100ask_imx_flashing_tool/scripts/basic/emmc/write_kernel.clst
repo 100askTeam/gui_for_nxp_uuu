@@ -1,0 +1,4 @@
+uuu_version 1.2.39
+FB:  download  -f  ../../../files/zImage
+FB[-t 60000]: ucmd  ext4write  mmc  ${emmc_dev}:2  ${fastboot_buffer}  /boot/zImage   ${fastboot_bytes}
+FB: Done

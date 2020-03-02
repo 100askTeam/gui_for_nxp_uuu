@@ -1,0 +1,7 @@
+uuu_version 1.2.39
+
+FB: ucmd if test ${SEL_DEV} = "EMMC" ; then setenv MMC_DEV ${emmc_dev};     fi;
+FB: ucmd if test ${FSTYPE}  = "FAT" ;  then setenv WRITEFILE_CMD  fatwrite;  else setenv WRITEFILE_CMD  ext4write; fi;
+FB[-t 60000]: ucmd ${WRITEFILE_CMD}  mmc  ${MMC_DEV}:${PART}  ${fastboot_buffer} ${TARGET_FILE}  ${fastboot_bytes}
+
+FB: Done

@@ -1,0 +1,63 @@
+How to use U-Boot on Freescale MX6DQSCM boards
+----------------------------------------------
+
+- Build U-Boot for MX6DQSCM QWKS rev3 board*:
+
+$ make mx6dqscm_1gb_fix_qwks_rev3_defconfig
+$ make
+
+This will generate the u-boot image u-boot.imx.
+
+- Flash the u-boot image into the micro SD card:
+
+sudo dd if=u-boot.imx of=/dev/sdX bs=1k seek=1; sync
+
+*Other defconfigs availabe are:
+    mx6dqscm_1gb_fix_qwks_rev3_defconfig
+    mx6dqscm_1gb_fix_qwks_rev3_spinor_defconfig
+    mx6dqscm_1gb_interleaving_qwks_rev3_android_defconfig
+
+
+- Jumper settings for fix mode images to boot from the top SD:
+
+Fix mode                        SW1: ON  ON  OFF OFF ON  OFF OFF ON
+Interleave mode                 SW1: ON  OFF ON  OFF ON  OFF OFF ON
+Single channel(512MB/epop)      SW1: ON  OFF OFF OFF ON  OFF OFF ON
+
+- Jumper settings for fix mode images to boot from internal SPI-NOR:
+
+Fix mode                        SW1: ON  ON  OFF X   X   ON  ON  OFF
+Interleave mode                 SW1: ON  OFF ON  X   X   ON  ON  OFF
+Single channel(512MB/epop)      SW1: ON  OFF OFF X   X   ON  ON  OFF
+
+- Jumper settings to boot from internal eMMC (just for ePOP):
+
+Single channel(epop)            SW1: ON  OFF OFF ON  ON  OFF ON  ON
+
+
+Additional configurations
+==========================
+
+For custom configurations like 2GB or 512MB, the following option can be added on the defconfig
+according with the customization needed. (Check also the Kconfig file at the mx6dqscm directory)
+
+ - memory size option: 512MB, 2GB (if not set any, 1GB is the default value)
+
+     CONFIG_SCM_LPDDR2_512MB
+     CONFIG_SCM_LPDDR2_2GB
+
+ - memeory mode: fix or interleave (if not set any, fix/single mode is the default mode)
+
+     CONFIG_INTERLEAVING_MODE
+
+ - boot mode: SPI-NOR boot or SD (if not set any, MMC/SD is the default boot mode)
+
+     CONFIG_SPI_BOOT
+
+ - board: evb, qwks (if not set any, qwks-rev2 is the default board)
+
+     CONFIG_SCMHVB
+     CONFIG_QWKS_REV3
+     CONFIG_SCMEVB
+     CONFIG_SCMHVB
+

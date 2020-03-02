@@ -1,0 +1,5 @@
+uuu_version 1.2.39
+
+FB[-t 60000]: ucmd ${WRITEFILE_CMD}  mmc  ${emmc_dev}:${PART}  ${fastboot_buffer} ${TARGET_FILE}  ${fastboot_bytes}
+
+FB: Done

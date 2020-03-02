@@ -1,0 +1,6 @@
+uuu_version 1.2.39
+FB: ucmd setenv fastboot_dev mmc
+FB: ucmd setenv mmcdev ${sd_dev}
+FB: ucmd mmc dev ${sd_dev}
+FB: flash -raw2sparse all ../../../files/sdcard.img
+FB: done

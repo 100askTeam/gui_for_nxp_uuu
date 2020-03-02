@@ -1,0 +1,4 @@
+uuu_version 1.2.39
+FB:  download  -f  ../../../files/100ask_imx6ull-14x14.dtb
+FB[-t 60000]: ucmd  ext4write  mmc  ${emmc_dev}:2  ${fastboot_buffer}  /boot/100ask_imx6ull-14x14.dtb   ${fastboot_bytes}
+FB: Done
