@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/选择.png</file>
+        <file>res/下载.png</file>
+    </qresource>
+</RCC>

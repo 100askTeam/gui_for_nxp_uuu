@@ -1,0 +1,7 @@
+uuu_version 1.2.39
+SDP: boot -f ../../firmware/u-boot-dtb_fastboot_100ask.imx
+FB: download -f _file
+FB: acmd ext4write mmc ${emmc_dev}:2 ${fastboot_buffer} /_name ${fastboot_bytes}
+FB: delay 7000
+
+FB: Done

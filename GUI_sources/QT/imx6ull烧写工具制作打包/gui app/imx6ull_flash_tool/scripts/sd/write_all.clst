@@ -1,0 +1,17 @@
+uuu_version 1.2.39
+
+SDP: boot -f ../../firmware/u-boot-dtb_fastboot_100ask.imx
+
+FB: ucmd setenv fastboot_dev mmc
+FB: ucmd setenv mmcdev ${sd_dev}
+FB: ucmd mmc dev ${sd_dev}
+FB: flash -raw2sparse all _filerootfs
+FB: flash bootloader _fileuboot
+FB:  download  -f  _filetree
+FB: acmd  ext4write  mmc  ${sd_dev}:2  ${fastboot_buffer}  /boot/_treename   ${fastboot_bytes}
+FB: delay 7000
+FB: done
+FB:  download  -f  _filekernel
+FB: acmd  ext4write  mmc  ${sd_dev}:2  ${fastboot_buffer}  /boot/_kernelname   ${fastboot_bytes}
+FB: delay 7000
+FB: Done
